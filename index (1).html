@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Azeena ♡</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0b080b;
+      color: #f8eef2;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    body::-webkit-scrollbar-track {
+      background: #0b080b;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background: #7d4659;
+      border-radius: 10px;
+    }
+
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background:
+        radial-gradient(circle at 50% 40%, #3c1c2a 0%, #160d13 35%, #080608 75%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .intro.hide {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(1.08);
+    }
+
+    .stars {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, #ffffffaa 1px, transparent 1px),
+        radial-gradient(circle, #e99ab455 1px, transparent 1px);
+      background-size: 80px 80px, 120px 120px;
+      opacity: .35;
+    }
+
+    .tiny {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 10px;
+      color: #c99baa;
+      margin-bottom: 20px;
+    }
+
+    .intro h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(50px, 9vw, 90px);
+      font-weight: 500;
+    }
+
+    .intro h1 span {
+      color: #e99ab4;
+      font-style: italic;
+    }
+
+    .subtitle {
+      color: #b9a5ad;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .open-btn,
+    .final button {
+      margin-top: 35px;
+      border: 1px solid #b96d85;
+      background: transparent;
+      color: #fff;
+      padding: 15px 28px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      transition: background .3s ease, transform .3s ease, box-shadow .3s ease;
+    }
+
+    .open-btn:hover,
+    .final button:hover {
+      background: #b96d85;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px #b96d8555;
+    }
+
+    #main {
+      display: block;
+    }
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 35%, #42202e 0%, #160c12 35%, #080608 75%);
+    }
+
+    .glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: #a34d70;
+      filter: blur(150px);
+      opacity: .12;
+      pointer-events: none;
+    }
+
+    .eyebrow,
+    .section-label {
+      letter-spacing: 5px;
+      font-size: 10px;
+      text-transform: uppercase;
+      color: #c98da1;
+    }
+
+    .hero h2 {
+      position: relative;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(75px, 13vw, 150px);
+      line-height: .75;
+      font-weight: 500;
+      margin: 35px 0;
+    }
+
+    .hero h2 span {
+      color: #e99ab4;
+      font-style: italic;
+    }
+
+    .name {
+      letter-spacing: 7px;
+      font-size: 12px;
+    }
+
+    .cake {
+      font-size: 45px;
+      margin-top: 40px;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    .scroll {
+      position: absolute;
+      bottom: 30px;
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: #8c737c;
+    }
+
+    @keyframes float {
+      50% { transform: translateY(-10px); }
+    }
+
+    .memories {
+      padding: 130px 7%;
+      background: #100a0e;
+    }
+
+    .memories h2,
+    .wishes h2,
+    .final h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(50px, 8vw, 90px);
+      line-height: .9;
+      margin: 30px 0 80px;
+    }
+
+    .memories h2 span,
+    .wishes h2 span,
+    .final h2 span {
+      color: #e99ab4;
+      font-style: italic;
+    }
+
+    .gallery {
+      max-width: 1050px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 25px;
+    }
+
+    .photo {
+      background: #171015;
+      padding: 12px 12px 35px;
+      box-shadow: 0 20px 50px #0005;
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+    .photo:hover {
+      transform: translateY(-10px) rotate(0deg) !important;
+      box-shadow: 0 30px 60px #0008;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(.75);
+      transition: filter .4s ease, transform .4s ease;
+    }
+
+    .photo:hover img {
+      filter: saturate(1);
+      transform: scale(1.01);
+    }
+
+    .photo p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      margin-top: 12px;
+      color: #d5b8c2;
+    }
+
+    .photo1 { grid-column: span 5; transform: rotate(-3deg); }
+    .photo2 { grid-column: span 7; transform: rotate(2deg); }
+    .photo3 { grid-column: span 7; transform: rotate(-2deg); }
+    .photo4 { grid-column: span 5; transform: rotate(3deg); }
+    .photo5 { grid-column: span 5; transform: rotate(-2deg); }
+    .photo6 { grid-column: span 7; transform: rotate(2deg); }
+
+    .letter-section {
+      padding: 140px 7%;
+      background: #0b080b;
+    }
+
+    .letter {
+      max-width: 700px;
+      margin: auto;
+      background: #f1e3e6;
+      color: #2c1720;
+      padding: 65px;
+      position: relative;
+      box-shadow: 0 30px 80px #0008;
+      transform: rotate(-1deg);
+    }
+
+    .heart {
+      font-size: 40px;
+      text-align: center;
+      color: #a34d70;
+      margin-bottom: 25px;
+    }
+
+    .letter h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 55px;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .letter p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .letter strong {
+      color: #8f4b63;
+    }
+
+    .letter-decoration,
+    .letter-stars,
+    .letter-divider {
+      text-align: center;
+    }
+
+    .letter-decoration {
+      margin-bottom: 18px;
+    }
+
+    .letter-stars {
+      margin: 20px 0;
+    }
+
+    .letter-divider {
+      margin: 30px 0;
+      color: #a34d70;
+    }
+
+    .heart-art {
+      text-align: center;
+      color: #a34d70;
+      font-family: monospace;
+      line-height: 1.05;
+      margin: 30px 0;
+    }
+
+    .memory-list,
+    .wish-list {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      line-height: 1.8;
+      margin: 25px 0;
+    }
+
+    .quote {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-style: italic;
+      margin: 30px 0;
+    }
+
+    .reminder {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 23px;
+      line-height: 1.8;
+      margin: 30px 0;
+    }
+
+    .birthday-box {
+      text-align: center;
+      border: 1px solid #c18aa0;
+      padding: 25px;
+      margin: 35px 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+    }
+
+    .big-letter-heart {
+      text-align: center;
+      font-size: 55px;
+      margin: 25px 0;
+    }
+
+    .final-birthday {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      margin: 30px 0;
+    }
+
+    .ps {
+      text-align: center;
+      margin-top: 35px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .bottom-decoration {
+      margin-top: 35px;
+    }
+
+    .signature {
+      margin-top: 40px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      text-align: right;
+    }
+
+    .signature span {
+      color: #9b4f69;
+      font-size: 25px;
+    }
+
+    .wishes {
+      padding: 130px 7%;
+      background: #140b10;
+    }
+
+    .wish-grid {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .wish {
+      border: 1px solid #38232c;
+      padding: 35px;
+      transition: .3s;
+    }
+
+    .wish:hover {
+      border-color: #9c536c;
+      transform: translateY(-5px);
+    }
+
+    .wish span {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: #a87584;
+    }
+
+    .wish h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      margin: 15px 0;
+    }
+
+    .wish p {
+      font-size: 12px;
+      line-height: 1.7;
+      color: #aa969e;
+    }
+
+    .final {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 7%;
+      background:
+        radial-gradient(circle at center, #3b1929, #10080d 55%, #070507);
+    }
+
+    .final h2 {
+      margin-bottom: 0;
+    }
+
+    .final button {
+      margin-top: 40px;
+    }
+
+    #secret {
+      display: none;
+      margin-top: 50px;
+      animation: appear .8s ease forwards;
+    }
+
+    #secret.show {
+      display: block;
+    }
+
+    .big-heart {
+      font-size: 70px;
+      animation: heartbeat 1.2s infinite;
+    }
+
+    #secret h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      margin: 15px 0;
+    }
+
+    #secret p {
+      max-width: 400px;
+      margin: auto;
+      color: #bca8af;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    #secret strong {
+      display: block;
+      margin-top: 25px;
+      color: #e99ab4;
+    }
+
+    @keyframes heartbeat {
+      50% { transform: scale(1.15); }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 200;
+    }
+
+    .heart-float {
+      position: fixed;
+      bottom: -30px;
+      pointer-events: none;
+      animation: rise 5s linear forwards;
+      z-index: 200;
+      color: #e99ab4;
+      text-shadow: 0 0 10px #e99ab466;
+    }
+
+    @keyframes rise {
+      to {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+      }
+    }
+
+    #confetti {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 300;
+    }
+
+    .confetti-piece {
+      position: fixed;
+      top: -20px;
+      width: 8px;
+      height: 12px;
+      z-index: 300;
+      animation: confettiFall 3s linear forwards;
+    }
+
+    @keyframes confettiFall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .memories,
+      .letter-section,
+      .wishes {
+        padding: 90px 5%;
+      }
+
+      .gallery {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .photo {
+        transform: none !important;
+      }
+
+      .photo img {
+        height: 280px;
+      }
+
+      .letter {
+        padding: 35px 25px;
+      }
+
+      .letter p {
+        font-size: 19px;
+      }
+
+      .wish-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
+        font-size: 80px;
+      }
+
+      .memories h2,
+      .wishes h2,
+      .final h2 {
+        font-size: 60px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+
+    <section class="screen intro" id="intro">
+      <div class="stars"></div>
+      <p class="tiny">A little something for you...</p>
+
+      <h1>
+        Hey, <span>Yeobo</span> 💌
+      </h1>
+
+      <p class="subtitle">
+        I made you a tiny surprise.
+      </p>
+
+      <button class="open-btn">
+        Open Your Surprise 🎁
+      </button>
+    </section>
+
+    <main id="main">
+
+      <section class="hero">
+        <div class="glow"></div>
+
+        <p class="eyebrow">
+          TODAY IS YOUR DAY ✨
+        </p>
+
+        <h2>
+          Happy<br>
+          <span>Birthday</span>
+        </h2>
+
+        <p class="name">
+          Azeena ♡
+        </p>
+
+        <div class="cake">🎂</div>
+
+        <p class="scroll">
+          scroll down ↓
+        </p>
+      </section>
+
+      <section class="memories">
+        <p class="section-label">
+          little memories
+        </p>
+
+        <h2>
+          Moments worth<br>
+          <span>remembering.</span>
+        </h2>
+
+        <div class="gallery">
+
+          <div class="photo photo1">
+            <img
+              src="https://raw.githubusercontent.com/yahfanoor248-design/azeena-birthday/main/images/m1.jpg"
+              alt="Memory 1"
+              loading="lazy"
+            >
+            <p>that one day ♡</p>
+          </div>
+
+          <div class="photo photo2">
+            <img
+              src="https://raw.githubusercontent.com/yahfanoor248-design/azeena-birthday/main/images/m2.jpg"
+              alt="Memory 2"
+              loading="lazy"
+            >
+            <p>good times ✨</p>
+          </div>
+
+          <div class="photo photo3">
+            <img
+              src="https://raw.githubusercontent.com/yahfanoor248-design/azeena-birthday/main/images/m3.jpg"
+              alt="Memory 3"
+              loading="lazy"
+            >
+            <p>always beautiful 😍</p>
+          </div>
+
+          <div class="photo photo4">
+            <img
+              src="https://raw.githubusercontent.com/yahfanoor248-design/azeena-birthday/main/images/m4.jpg"
+              alt="Memory 4"
+              loading="lazy"
+            >
+            <p>core memory 💗</p>
+          </div>
+
+          <div class="photo photo5">
+            <img
+              src="https://raw.githubusercontent.com/yahfanoor248-design/azeena-birthday/main/images/m5.jpg"
+              alt="Memory 5"
+              loading="lazy"
+            >
+            <p>gorgeous 💅</p>
+          </div>
+
+          <div class="photo photo6">
+            <img
+              src="https://raw.githubusercontent.com/yahfanoor248-design/azeena-birthday/main/images/m6.jpg"
+              alt="Memory 6"
+              loading="lazy"
+            >
+            <p>pretty 🎀</p>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="letter-section">
+        <p class="section-label">
+          a little letter
+        </p>
+
+        <div class="letter">
+          <div class="letter-decoration">୨୧ ─────────────── ୨୧</div>
+
+          <div class="heart">♡</div>
+
+          <h2>For you,</h2>
+
+          <div class="letter-stars">˚₊‧꒰ა ♡ ໒꒱ ‧₊˚</div>
+
+          <p>My dearest best friend,</p>
+
+          <p>
+            Today isn't just another day. 🎂🌷✨
+            It's the day the world got a little brighter because
+            <strong>you</strong> came into it. ♡
+          </p>
+
+          <p>
+            And honestly... I don't think a thousand words could ever
+            properly explain how much your friendship means to me.
+            But I'll try anyway. 🥹💗
+          </p>
+
+          <div class="heart-art">
+            ♡♡♡ &nbsp;&nbsp; ♡♡♡<br>
+            ♡♡♡♡♡♡♡♡♡♡♡<br>
+            ♡♡♡♡♡♡♡♡♡♡♡♡<br>
+            &nbsp;♡♡♡♡♡♡♡♡♡<br>
+            &nbsp;&nbsp;♡♡♡♡♡♡<br>
+            &nbsp;&nbsp;&nbsp;♡♡♡<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;♡
+          </div>
+
+          <p>
+            You became one of those people I never had to force into my life.
+            You just... <strong>fit.</strong> ♡
+          </p>
+
+          <p>
+            Somewhere between the random conversations, stupid jokes,
+            endless laughing, little arguments, shared secrets,
+            embarrassing moments and completely random nonsense...
+            you became <strong>home.</strong> 🏡💗
+          </p>
+
+          <div class="letter-divider">♡ ────── ୨ৎ ────── ♡</div>
+
+          <p>
+            You know those friendships where you can say absolutely nothing...
+            and still somehow understand everything?
+            That's us. 😭♡
+          </p>
+
+          <p>
+            The kind where one look can turn into an entire conversation.
+            The kind where a random sentence becomes an inside joke.
+            The kind where <em>"bro listen..."</em> somehow turns into
+            a three-hour conversation. 😭🤚🏻
+          </p>
+
+          <p>
+            The kind where we can be our absolute weirdest selves
+            and nobody has to pretend.
+          </p>
+
+          <p>
+            And honestly?
+            <strong>I wouldn't trade that for anything.</strong> 🫶🏻
+          </p>
+
+          <div class="letter-stars">˚₊‧꒰ა 🌷 ໒꒱ ‧₊˚</div>
+
+          <p>
+            Sometimes I think the most beautiful memories aren't
+            the huge moments.
+          </p>
+
+          <p>They're the tiny ones. ✨</p>
+
+          <div class="memory-list">
+            🎀 the random pictures<br>
+            😂 the stupid laughs<br>
+            🌙 the late conversations<br>
+            👀 the unnecessary gossip<br>
+            😭 the inside jokes nobody else understands<br>
+            🥹 the little "remember when..." moments<br>
+            💗 the ordinary days that somehow became unforgettable
+          </div>
+
+          <div class="letter-divider">♡ ───────────── ♡</div>
+
+          <p>And maybe that's the beautiful thing about friendship.</p>
+
+          <p>
+            You don't realize you're making a memory...
+            until one day you look back and realize,
+          </p>
+
+          <div class="quote">"I wish I could go back to that day." 🌙</div>
+
+          <p>
+            We don't know which ordinary moments will someday become
+            the memories we miss the most.
+          </p>
+
+          <p>
+            So here's to all the memories we've already made...
+            and all the ones waiting for us. 🥂💗
+          </p>
+
+          <div class="wish-list">
+            🎀 more laughing<br>
+            🌷 more memories<br>
+            📸 more pictures<br>
+            🌙 more late talks<br>
+            😭 more stupid jokes<br>
+            ✨ more adventures<br>
+            💗 more <em>us</em>
+          </div>
+
+          <div class="letter-divider">♡ ────── ୨ৎ ────── ♡</div>
+
+          <p>And if life were a song... 🎶</p>
+
+          <p>
+            I'd probably keep replaying the chapters with you.
+            Not because every moment was perfect...
+          </p>
+
+          <div class="quote">
+            "We didn't know we were making memories, we were just having fun." ✨
+          </div>
+
+          <p>
+            One day we'll look back at these silly little moments.
+            We'll laugh at the pictures, remember the jokes,
+            and talk about how dramatic we used to be. 😭
+          </p>
+
+          <p>
+            And maybe we'll finally realize...
+            <strong>these were the good old days.</strong> 🌙
+          </p>
+
+          <div class="letter-stars">˚₊‧꒰ა ✧ ໒꒱ ‧₊˚</div>
+
+          <p>On your birthday, I don't just wish you happiness.</p>
+
+          <p>
+            I wish you the kind of happiness that feels like sunlight
+            through your window. ☀️🌷
+          </p>
+
+          <p>
+            The kind that makes your heart feel light.
+            The kind that finds you when you least expect it.
+          </p>
+
+          <p>
+            I wish you dreams that are bigger than your fears. 🌙✨
+            I wish you courage when things get difficult.
+            I wish you people who genuinely appreciate your heart.
+          </p>
+
+          <p>
+            I wish you moments that make you stop and think:
+          </p>
+
+          <div class="quote">"Wow... life is beautiful." 🤍</div>
+
+          <p>
+            And when life gets hard, I hope you remember that
+            you don't have to have everything figured out.
+          </p>
+
+          <p>
+            You can rest. 🌷<br>
+            You can cry. 🤍<br>
+            You can start over. ✨<br>
+            You can take your time. 🕊️<br>
+            You can become a completely different version of yourself.
+          </p>
+
+          <p>And I'll still be cheering for you. 🫶🏻</p>
+
+          <div class="letter-divider">♡ ───────────── ♡</div>
+
+          <p>Now... a little reminder.</p>
+
+          <div class="reminder">
+            ♡ You are <strong>loved.</strong> ♡<br>
+            ♡ You are <strong>important.</strong> ♡<br>
+            ♡ You are <strong>appreciated.</strong> ♡<br>
+            ♡ You are <strong>enough.</strong> ♡
+          </div>
+
+          <div class="heart-art">
+            ♡<br>
+            ♡ ♡<br>
+            ♡ &nbsp; ♡<br>
+            ♡ &nbsp;&nbsp; ♡<br>
+            &nbsp;♡ ♡<br>
+            &nbsp;&nbsp;♡
+          </div>
+
+          <p>If you ever forget how special you are... come back here.</p>
+
+          <p>Read this again.</p>
+
+          <p>
+            Because somewhere in this huge world 🌎✨
+            there is someone who is genuinely grateful that
+            <strong>you exist.</strong>
+          </p>
+
+          <p>
+            Someone who is thankful for your friendship.
+            Someone who smiles at old memories.
+            Someone who wants to see you succeed.
+            Someone who wants to see you achieve every dream
+            you've ever whispered about.
+          </p>
+
+          <p>Someone who will always be rooting for you.</p>
+
+          <p><strong>That someone is me.</strong> 🥹💗</p>
+
+          <div class="letter-divider">♡ ────── ୨ৎ ────── ♡</div>
+
+          <p>
+            And yes... I'll probably annoy you.
+            I'll tease you.
+            I'll send you completely unnecessary messages.
+            I'll make fun of you.
+            I'll laugh at you when you do something stupid. 😭
+          </p>
+
+          <p>
+            But underneath all of that...
+            there is one thing I hope you never doubt:
+          </p>
+
+          <div class="quote"><strong>I care about you.</strong> 💗</div>
+
+          <p>A lot.</p>
+
+          <p>
+            More than I can fit into one letter.
+            More than these little words.
+            More than this tiny website could ever explain.
+          </p>
+
+          <div class="letter-stars">˚₊‧꒰ა ♡ ໒꒱ ‧₊˚</div>
+
+          <p>So today...</p>
+
+          <div class="memory-list">
+            🎂 eat the cake<br>
+            📸 take the pictures<br>
+            🎀 wear the pretty outfit<br>
+            😂 laugh way too much<br>
+            ✨ make your wish<br>
+            💗 enjoy every second
+          </div>
+
+          <p>Because today belongs to <strong>you.</strong> ♡</p>
+
+          <div class="birthday-box">
+            🎂 ୨୧ 🎀 ୨୧ 🎂
+            <br><br>
+            <strong>HAPPY BIRTHDAY</strong>
+            <br>
+            ♡ Azeena ♡
+            <br><br>
+            🎀 ୨୧ ✨ ୨୧ 🎀
+          </div>
+
+          <p>
+            And when you blow out your candles...
+            I hope every little wish inside your heart
+            finds its way to you. 🕯️✨
+          </p>
+
+          <p>
+            I hope this year is softer.
+            Brighter.
+            Happier.
+            Bigger.
+            And filled with moments you'll remember forever.
+          </p>
+
+          <div class="letter-stars">˚₊‧꒰ა 🦢 ໒꒱ ‧₊˚</div>
+
+          <p>Here's to <strong>365 new days.</strong></p>
+
+          <p>
+            365 new chances.
+            365 new little beginnings.
+            365 opportunities to laugh, grow, dream,
+            explore and make memories.
+          </p>
+
+          <p>And hopefully...</p>
+
+          <div class="quote">
+            <strong>a million more memories together. 💗</strong>
+          </div>
+
+          <div class="big-letter-heart">💗</div>
+
+          <p>Because some friendships are just friendships...</p>
+          <p>Some are chapters...</p>
+          <p>But some feel like a story you never want to end.</p>
+          <p>And I'm really, really glad...</p>
+          <p><strong>ours is one of them. ♡</strong></p>
+
+          <div class="heart-art big-heart-art">
+            ♡♡♡　　 ♡♡♡<br>
+            ♡♡♡♡♡♡♡ ♡♡♡♡♡♡♡<br>
+            ♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡<br>
+            ♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡<br>
+            ♡♡♡♡♡♡♡♡♡♡♡♡♡<br>
+            ♡♡♡♡♡♡♡♡♡<br>
+            ♡♡♡♡♡♡<br>
+            ♡♡<br>
+            ♡
+          </div>
+
+          <h3 class="final-birthday">
+            Happy Birthday, my best friend. 🎂🎀
+          </h3>
+
+          <p>
+            Thank you for being one of the most beautiful parts
+            of my story.
+          </p>
+
+          <p>
+            Thank you for the laughs. 😂<br>
+            Thank you for the memories. 📸<br>
+            Thank you for the chaos. 😭<br>
+            Thank you for simply being <strong>you.</strong> 🫶🏻
+          </p>
+
+          <div class="letter-stars">˚₊‧꒰ა ♡ ໒꒱ ‧₊˚</div>
+
+          <p>May you always have something to smile about. 🌷</p>
+          <p>May you always have something to look forward to. ✨</p>
+          <p>May you always have someone beside you when life gets heavy. 🤍</p>
+          <p>
+            And may you never forget just how much
+            you mean to the people who love you.
+          </p>
+
+          <div class="letter-stars">
+            ˚₊‧꒰ა ♡ ໒꒱ ‧₊˚<br>
+            ✨ Keep shining. ✨<br>
+            🌙 Keep dreaming. 🌙<br>
+            🎀 Keep laughing. 🎀<br>
+            ♡ Keep being you. ♡
+          </div>
+
+          <p>Because the world is a little more beautiful with you in it. 🌎💗</p>
+
+          <div class="signature">
+            With all the love, chaos, memories,
+            laughter and countless adventures
+            still waiting for us...
+            <br><br>
+            <span>Azeena ♡</span>
+          </div>
+
+          <div class="ps">
+            ╭────────────────────────╮<br>
+            <strong>P.S.</strong><br>
+            You're stuck with me.<br>
+            Unfortunately. 😭♡<br>
+            ╰────────────────────────╯
+          </div>
+
+          <div class="letter-decoration bottom-decoration">
+            ♡ ─────────────── ♡
+          </div>
+        </div>
+      </section>
+
+      <section class="wishes">
+        <p class="section-label">
+          my wishes for you
+        </p>
+
+        <h2>
+          May your days be<br>
+          <span>beautiful.</span>
+        </h2>
+
+        <div class="wish-grid">
+
+          <div class="wish">
+            <span>01</span>
+            <h3>Happiness</h3>
+            <p>May you always have a reason to smile.</p>
+          </div>
+
+          <div class="wish">
+            <span>02</span>
+            <h3>Dreams</h3>
+            <p>May every dream you chase find its way to you.</p>
+          </div>
+
+          <div class="wish">
+            <span>03</span>
+            <h3>Peace</h3>
+            <p>May your heart always find its little moments of peace.</p>
+          </div>
+
+          <div class="wish">
+            <span>04</span>
+            <h3>Memories</h3>
+            <p>May this year give you stories worth telling forever.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="final">
+        <div class="final-content">
+
+          <p class="tiny">wait...</p>
+
+          <h2>
+            I have<br>
+            <span>one more thing.</span>
+          </h2>
+
+          <button class="surprise-btn">
+            Keep Clicking me 💗
+          </button>
+
+          <div id="secret">
+
+            <div class="big-heart">💖</div>
+
+            <h3>You deserve the world.</h3>
+
+            <p>
+              And I hope this year brings you closer to everything
+              you've ever wished for.
+            </p>
+
+            <strong>Happy Birthday! 🎂✨</strong>
+
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <div id="hearts"></div>
+    <div id="confetti"></div>
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const intro = document.getElementById("intro");
+      const openButton = document.querySelector(".open-btn");
+      const surpriseButton = document.querySelector(".surprise-btn");
+      const secret = document.getElementById("secret");
+      const heartsContainer = document.getElementById("hearts");
+      const confettiContainer = document.getElementById("confetti");
+
+      let heartsStarted = false;
+
+      function startHearts() {
+        if (heartsStarted) return;
+
+        heartsStarted = true;
+
+        setInterval(() => {
+          if (!heartsContainer) return;
+
+          const heart = document.createElement("div");
+          heart.className = "heart-float";
+
+          const symbols = ["♡", "♥", "♡", "✦"];
+
+          heart.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.fontSize = 12 + Math.random() * 18 + "px";
+          heart.style.opacity = 0.3 + Math.random() * 0.6;
+          heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+
+          heartsContainer.appendChild(heart);
+
+          setTimeout(() => {
+            if (heart.parentNode) {
+              heart.remove();
+            }
+          }, 8000);
+
+        }, 800);
+      }
+
+      function createConfetti() {
+        if (!confettiContainer) return;
+
+        const colors = [
+          "#f2a8bf",
+          "#d77c9b",
+          "#f7dce5",
+          "#b96883",
+          "#ffffff"
+        ];
+
+        for (let i = 0; i < 100; i++) {
+
+          const piece = document.createElement("div");
+          piece.className = "confetti-piece";
+
+          piece.style.left = Math.random() * 100 + "vw";
+          piece.style.width = 5 + Math.random() * 7 + "px";
+          piece.style.height = 7 + Math.random() * 10 + "px";
+
+          piece.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+
+          piece.style.animationDelay =
+            Math.random() * 1.5 + "s";
+
+          confettiContainer.appendChild(piece);
+
+          setTimeout(() => {
+            if (piece.parentNode) {
+              piece.remove();
+            }
+          }, 5000);
+        }
+      }
+
+      if (openButton) {
+        openButton.addEventListener("click", () => {
+
+          if (intro) {
+            intro.classList.add("hide");
+
+            setTimeout(() => {
+              intro.style.display = "none";
+            }, 1000);
+          }
+
+          startHearts();
+          createConfetti();
+        });
+      }
+
+      if (surpriseButton) {
+        surpriseButton.addEventListener("click", () => {
+
+          if (secret) {
+            secret.classList.add("show");
+          }
+
+          createConfetti();
+          startHearts();
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>
